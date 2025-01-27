@@ -1,0 +1,13 @@
+node_modules
+postgres-data
+.DS_Store
+*.log
+logs
+.env
+project.md
+dist/
+build/
+package-lock.json
+.vscode/
+coverage/
+*.test.js

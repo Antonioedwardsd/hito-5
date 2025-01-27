@@ -1,0 +1,13 @@
+build
+coverage
+.env
+node_modules/
+postgres-data/
+*.log
+logs/
+docker-compose.yml
+.gitignore
+.prettierignore
+.eslintrc.js
+swagger.yml
+project.md

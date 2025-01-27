@@ -1,0 +1,31 @@
+# Define la versión del archivo Compose (opcional pero recomendable)
+# version: "3.8"
+
+# Sección para definir los servicios del proyecto
+services:
+  # Nombre del servicio (puedes cambiarlo según prefieras)
+  db:
+    # Imagen Docker que se usará para este servicio
+    image: postgres:15 # Usa PostgreSQL versión 15
+
+    # Nombre del contenedor
+    container_name: hito-5 # Nombre del contenedor
+
+    # Variables de entorno para configurar la base de datos
+    environment:
+      POSTGRES_USER: postgres # Usuario predeterminado de la base de datos
+      POSTGRES_PASSWORD: root # Contraseña del usuario
+      POSTGRES_DB: hito-5 # Nombre de la base de datos que se creará
+
+    # Puertos: mapea el puerto 5432 (dentro del contenedor) al 5434 (en tu máquina host)
+    ports:
+      - "5434:5432" # host:contenedor
+
+    # Volúmenes: mapea una carpeta local a la ruta de datos de PostgreSQL en el contenedor
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+        # ./postgres-data es una carpeta en tu máquina local
+        # /var/lib/postgresql/data es donde PostgreSQL guarda sus datos
+
+# Define volúmenes externos (puedes agregar nombres aquí si los necesitas)
+volumes: {}
