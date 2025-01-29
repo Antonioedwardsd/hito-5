@@ -7,6 +7,9 @@ import userRouter from './routes/user.route';
 import taskRoute from './routes/task.route';
 import openapiSpecification from './config/swagger';
 import swaggerUi from 'swagger-ui-express';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -36,7 +39,7 @@ const startServer = async () => {
   }
 };
 
-if (require.main === module) {
+if (__filename === fileURLToPath(import.meta.url)) {
   startServer();
 }
 
